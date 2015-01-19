@@ -1,5 +1,7 @@
 # Change Log
 <pre>
+v3.1.1  [MOD-1962] Allow to re-enable push
+
 v3.1.0  [TIMOB-17928] Updated to build for 64-bit
 
 v3.0.0  [TIMODOPEN-264] Upgraded to Urban Airship version 3.0.2 for iOS

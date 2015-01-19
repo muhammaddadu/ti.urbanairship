@@ -88,6 +88,14 @@ Unregisters the device with Urban Airship.
 
 None.
 
+### Ti.UrbanAirship.reregisterDevice()
+
+Reregisters the device with Urban Airship.
+
+#### Arguments
+
+None.
+
 ### Ti.UrbanAirship.displayInbox({ animated[bool] })
 
 Shows the persistent inbox that stores and organizes rich push notifications.

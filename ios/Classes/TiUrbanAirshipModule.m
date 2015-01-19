@@ -210,6 +210,13 @@
 	}
 }
 
+-(void)reregisterDevice:(id)arg
+{
+	if (initialized) {
+		[UAPush shared].pushEnabled = YES;
+	}
+}
+
 -(void)displayInbox:(id)args
 {
 	ENSURE_UI_THREAD_1_ARG(args);
