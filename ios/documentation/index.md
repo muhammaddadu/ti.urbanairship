@@ -154,70 +154,8 @@ Enables the Urban Airship module to automatically call resetBadge after takeoff,
 
 The username created by Urban Airship during device registration
 
-### options[object]
-
-A dictionary of the configuration options for this application. These values can be used to override any values
-specified in the AirshipConfig.plist file (if provided):
-
-* PRODUCTION\_APP\_KEY[string]: The application key for production
-* PRODUCTION\_APP\_SECRET[string]: The application secret for production
-* DEVELOPMENT\_APP\_KEY[string]: The application key for development
-* DEVELOPMENT\_APP\_SECRET[string]: The application secret for development
-* APP\_STORE\_OR\_AD\_HOC\_BUILD[bool]: Whether or not the app is in production (true if yes, false if not)
-* LOGGING\_ENABLED[bool]: Whether or not logging should be enabled
-
 ## Example
-<pre>/*
- * Demonstrates how to set up your UA Inbox,
- * and how to display the messages from it via the picker interface.
- */
-
-var window = Ti.UI.createWindow({
-    backgroundColor: 'white'
-});
-
-var UrbanAirship = require('ti.urbanairship');
-
-Ti.UrbanAirship.options = {
-    APP_STORE_OR_AD_HOC_BUILD: false,
-    PRODUCTION_APP_KEY: '=== YOUR PROD APP KEY ===',
-    PRODUCTION_APP_SECRET: '=== YOUR PROD APP SECRET ===',
-    DEVELOPMENT_APP_KEY: '=== YOUR DEV APP KEY ===',
-    DEVELOPMENT_APP_SECRET: '=== YOUR DEV APP SECRET ===',
-    LOGGING_ENABLED: true
-};
-
-var b = Ti.UI.createButton({
-    title: 'Open UA Inbox',
-    width: 200, height: 40
-});
-b.addEventListener('click', function() {
-    // Open default mailbox
-    Ti.UrbanAirship.displayInbox({ animated:true });
-});
-window.add(b);
-
-Ti.Network.registerForPushNotifications({
-    types:[
-        Ti.Network.NOTIFICATION_TYPE_BADGE,
-        Ti.Network.NOTIFICATION_TYPE_ALERT,
-        Ti.Network.NOTIFICATION_TYPE_SOUND
-    ],
-    success: function(e) {
-        var token = e.deviceToken;
-        Ti.UrbanAirship.registerDevice(token);
-
-        b.enabled = true;
-    },
-    error: function(e) {
-        alert("Error: " + e.error);
-    },
-    callback: function(e) {
-        Ti.UrbanAirship.handleNotification(e.data);
-    }
-});
-
-window.open();</pre>
+See the example folder.
 
 ## Author
 
